@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberTedu - DevSecOps Mastery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo glow-text">CYBERTEDU</a>
+          <div class="nav-links">
+            <a href="#ssdlc">SSDLC</a>
+          <a href="#git">Git</a>
+          <a href="#cicd">CI/CD</a>
+            <a href="#security">Security</a>
+            <a href="#shift-left">Shift Left</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="container">
+          <h1 class="glow-text">DevSecOps Mastery</h1>
+          <p>
+            Yazılım geliştirme süreçlerini güvenli ve hızlı hale getirmeyi
+            öğrenin. Build aşamasından Orchestration'a kadar uçtan uca DevSecOps
+            kültürü.
+          </p>
+          <button class="btn-primary">Başla</button>
+        </div>
+      </section>
+
+      <section id="ssdlc">
+        <div class="container">
+          <div class="glass-card" style="padding: 40px">
+            <h2>Ssdlc & Modern SDLC</h2>
+            <p>
+              Yazılım Geliştirme Yaşam Döngüsü (SDLC), bir yazılımın fikir
+              aşamasından yayına alınmasına kadar olan süreci kapsar. **Ssdlc**
+              ise bu sürece güvenliği en baştan entegre eden yapıdır.
+            </p>
+
+            <div class="pipeline-line"></div>
+            <div class="pipeline-container">
+              <div class="pipeline-step">
+                <div class="icon">📝</div>
+                <h3>Plan</h3>
+              </div>
+              <div class="pipeline-step">
+                <div class="icon">💻</div>
+                <h3>Code</h3>
+              </div>
+              <div class="pipeline-step">
+                <div class="icon">🛠️</div>
+                <h3>Build</h3>
+              </div>
+              <div class="pipeline-step">
+                <div class="icon">🧪</div>
+                <h3>Test</h3>
+              </div>
+              <div class="pipeline-step">
+                <div class="icon">🚀</div>
+                <h3>Deploy</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="git">
+      <div class="container">
+        <h2 class="glow-text" style="text-align: center; margin-bottom: 30px;">Git & Branch Yönetimi</h2>
+        <div class="glass-card" style="padding: 40px;">
+          <p>Git, modern yazılım geliştirme süreçlerinin temelidir. Doğru bir branch yönetimi stratejisi (GitFlow, Trunk Based Development vb.), kod kalitesini artırır ve sürece güvenliği (Security Gates) entegre etmeyi kolaylaştırır.</p>
+          <div class="git-visual">
+            <div class="git-branch main-branch">Main</div>
+            <div class="git-branch develop-branch">Develop</div>
+            <div class="git-branch feature-branch">Feature</div>
+            <div class="git-connector"></div>
+          </div>
+          <div class="shift-left-annotation" style="margin-top: 20px; border-color: var(--accent-color); color: var(--accent-color);">
+            💡 Branch koruma kuralları ve PR (Pull Request) incelemeleri, SSDLC'nin ilk savunma hattıdır.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cicd">
+      <div class="container">
+        <h2 class="glow-text" style="text-align: center; margin-bottom: 50px;">CI/CD & DevSecOps Pipeline</h2>
+        <div class="glass-card" style="padding: 40px;">
+          <p>Sürekli Entegrasyon (CI) ve Sürekli Teslimat/Dağıtım (CD) süreçlerine güvenlik araçlarını entegre ederek uçtan uca güvenliği sağlıyoruz.</p>
+          
+          <div class="pipeline-container detailed-pipeline" id="main-pipeline">
+            <div class="pipeline-step" data-info="build">
+              <div class="icon">🏗️</div>
+              <h3>Build</h3>
+            </div>
+            <div class="pipeline-step" data-info="scan">
+              <div class="icon">🔍</div>
+              <h3>Secret Scanning</h3>
+            </div>
+            <div class="pipeline-step" data-info="push">
+              <div class="icon">📦</div>
+              <h3>Push Image</h3>
+            </div>
+            <div class="pipeline-step" data-info="orchestration">
+              <div class="icon">☸️</div>
+              <h3>Orchestration</h3>
+            </div>
+          </div>
+
+          <div id="pipeline-details">
+            <div class="pipeline-info" id="info-build">
+              <h4>Build & Write</h4>
+              <p>Kod yazılır (Write), test edilir (Test) ve uygulama imajı oluşturulur (Build). Burası Shift Left'in başladığı yerdir.</p>
+            </div>
+            <div class="pipeline-info" id="info-scan">
+              <h4>Container & Secret Scanning</h4>
+              <p>Gitleaks, TruffleHog gibi araçlarla kod içerisindeki gizli veriler (Secrets) taranır. Container imajları zafiyetlere karşı taranır.</p>
+            </div>
+            <div class="pipeline-info" id="info-push">
+              <h4>Registry & Push</h4>
+              <p>Güvenli imajlar Docker Registry gibi depolara itilir (Push). Burada imaj imzalaması gibi güvenlik adımları eklenir.</p>
+            </div>
+            <div class="pipeline-info" id="info-orchestration">
+              <h4>Orchestration & API Security</h4>
+              <p>Kubernetes gibi araçlarla yönetim (Orchestration) yapılır. API'lar ve mikroservisler çalışma zamanında (Runtime) korunur.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="security">
+      <div class="container">
+        <h2 class="glow-text" style="text-align: center; margin-bottom: 30px;">Security Tools & Management</h2>
+        <div class="tool-grid">
+          <div class="glass-card tool-card">
+            <h4>CNAPP</h4>
+            <p>Cloud-Native Application Protection Platform. Bulut tabanlı uygulamaların güvenliğini merkezileştirir.</p>
+          </div>
+          <div class="glass-card tool-card">
+            <h4>Secret Management</h4>
+            <p>HashiCorp Vault gibi araçlarla şifreler ve anahtarlar güvenli bir şekilde yönetilir, koda asla gömülmez.</p>
+          </div>
+          <div class="glass-card tool-card">
+            <h4>Branch Management</h4>
+            <p>Git branch yönetimi ile sadece onaylı kodların ana hatta (Main/Master) girmesi sağlanır.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shift-left">
+        <div class="container">
+          <h2 class="glow-text" style="text-align: center; margin-bottom: 30px">
+            Shift Left Philosophy
+          </h2>
+          <div class="glass-card" style="padding: 40px">
+            <p>
+              Shift Left, güvenliği ve kaliteyi geliştirme sürecinin en soluna
+              (başına) çekme stratejisidir. Bu sayede hatalar daha erken
+              bulunur, maliyetler düşer ve yazılım kalitesi artar.
+            </p>
+            <div class="shift-left-annotation">
+              ⭐ Daha Erken Tespit = Daha Düşük Maliyet + Daha Hızlı Teslimat
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <footer>
+    <div class="container">
+      <a href="#" class="logo glow-text">CYBERTEDU</a>
+      <p>&copy; 2026 CyberTedu DevSecOps Academy. Bütün hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
