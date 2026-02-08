@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberEdu Security Guide | DevSecOps Infrastructure</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="glass-nav">
+      <div class="logo">Cyber<span>Sec</span></div>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#sast">SAST</a></li>
+        <li><a href="#sbom">SBOM</a></li>
+        <li><a href="#dast">DAST</a></li>
+        <li><a href="#cd">CD</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1 class="reveal">Secure Your <span>Modern Stack</span></h1>
+        <p class="reveal-delay">
+          A comprehensive guide to the automated security infrastructure
+          implemented in this project.
+        </p>
+        <div class="hero-btns">
+          <a href="#overview" class="btn primary">Get Started</a>
+          <a href="https://github.com/rkfirat/juice-shop" class="btn secondary"
+            >View Repo</a
+          >
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/hero.png" alt="DevSecOps Visualization" />
+      </div>
+    </header>
+
+    <main>
+      <section id="overview" class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="icon-box">
+            <img
+              src="assets/icons.png"
+              alt="SAST"
+              style="
+                object-position: 0 0;
+                width: 60px;
+                height: 60px;
+                object-fit: none;
+              "
+            />
+          </div>
+          <h3>Static Analysis</h3>
+          <p>
+            Automated code scanning with Semgrep to find vulnerabilities before
+            they reach production.
+          </p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay: 0.1s">
+          <div class="icon-box">
+            <img
+              src="assets/icons.png"
+              alt="SBOM"
+              style="
+                object-position: -60px 0;
+                width: 60px;
+                height: 60px;
+                object-fit: none;
+              "
+            />
+          </div>
+          <h3>SBOM Generation</h3>
+          <p>
+            Full dependency tracking using Syft, ensuring a transparent software
+            bill of materials.
+          </p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay: 0.2s">
+          <div class="icon-box">
+            <img
+              src="assets/icons.png"
+              alt="DAST"
+              style="
+                object-position: 0 -60px;
+                width: 60px;
+                height: 60px;
+                object-fit: none;
+              "
+            />
+          </div>
+          <h3>Dynamic Scanning</h3>
+          <p>
+            Runtime vulnerability detection with Nuclei and Invicti for
+            proactive defense.
+          </p>
+        </div>
+        <div class="feature-card reveal" style="transition-delay: 0.3s">
+          <div class="icon-box">
+            <img
+              src="assets/icons.png"
+              alt="CD"
+              style="
+                object-position: -60px -60px;
+                width: 60px;
+                height: 60px;
+                object-fit: none;
+              "
+            />
+          </div>
+          <h3>Secure CD</h3>
+          <p>
+            Continuous deployment to GHCR with automated security gates in the
+            pipeline.
+          </p>
+        </div>
+      </section>
+
+      <section id="sast" class="detail-section">
+        <div class="container">
+          <h2>Static Analysis with <span>Semgrep</span></h2>
+          <div class="content-flex">
+            <div class="text">
+              <p>
+                We use Semgrep in OSS mode for automated security scanning. It
+                checks every commit for common vulnerabilities (OWASP Top 10),
+                misconfigurations, and hardcoded secrets.
+              </p>
+              <ul class="check-list">
+                <li>Zero configuration overhead</li>
+                <li>Free Open Source engine</li>
+                <li>Customizable YAML rules</li>
+              </ul>
+            </div>
+            <div class="code-box">
+              <pre><code>- name: Semgrep OSS Scan
+  uses: semgrep/semgrep-action@v1
+  with:
+    config: auto</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sbom" class="detail-section alt">
+        <div class="container">
+          <h2>Supply Chain Security with <span>Syft</span></h2>
+          <div class="content-flex reverse">
+            <div class="code-box">
+              <pre><code>- name: Generate SBOM (Syft)
+  uses: anchore/sbom-action@v0
+  with:
+    format: cyclonedx-json
+    output-file: sbom.json</code></pre>
+            </div>
+            <div class="text">
+              <p>
+                Syft generates a Software Bill of Materials (SBOM) for our
+                project, providing full visibility into every library and
+                dependency used.
+              </p>
+              <ul class="check-list">
+                <li>Identify vulnerable dependencies</li>
+                <li>Catalog all nested modules</li>
+                <li>CycloneDX JSON integration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dast" class="detail-section">
+        <div class="container">
+          <h2>Dynamic Scanning: <span>Nuclei & Invicti</span></h2>
+          <div class="content-flex">
+            <div class="text">
+              <p>
+                For runtime protection, we combine Nuclei's template-based
+                checks with Invicti's deep DAST capabilities. This catches
+                vulnerabilities that only manifest in a running environment.
+              </p>
+              <div class="tool-tags">
+                <span class="tag">Nuclei (OSS)</span>
+                <span class="tag">Invicti (Enterprise)</span>
+                <span class="tag">DAST</span>
+              </div>
+            </div>
+            <div class="code-box">
+              <pre><code># Run Nuclei locally
+docker run --rm projectdiscovery/nuclei \
+  -u http://localhost:8080 \
+  -status</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cd" class="detail-section alt">
+        <div class="container">
+          <h2>Continuous Deployment to <span>GHCR</span></h2>
+          <div class="content-flex reverse">
+            <div class="code-box">
+              <pre><code>- name: Build and push Docker image
+  uses: docker/build-push-action@v5
+  with:
+    push: true
+    tags: ghcr.io/${{ github.repository }}:latest</code></pre>
+            </div>
+            <div class="text">
+              <p>
+                Our secure pipeline automatically builds and pushes the Docker
+                image to GitHub Container Registry only after all security
+                gates are successfully cleared.
+              </p>
+              <ul class="check-list">
+                <li>Automated GHCR login</li>
+                <li>Immutable tagging (Commit SHA)</li>
+                <li>Security-gated promotion</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 CyberEdu Security Infrastructure Guide</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
