@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CD Detail | CyberEdu Security Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="subpage">
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Cyber<span>Sec</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sast.html">SAST</a></li>
+            <li><a href="sbom.html">SBOM</a></li>
+            <li><a href="dast.html">DAST</a></li>
+        </ul>
+    </nav>
+
+    <main class="container page-content">
+        <header class="page-header reveal">
+            <h1>Continuous Deployment (<span>CD</span>)</h1>
+            <p>Automated, secure delivery to GitHub Container Registry.</p>
+        </header>
+
+        <section class="detail-block reveal">
+            <h2>Secure Pipeline Architecture</h2>
+            <p>Our CD pipeline is designed with "Security as a Gate". This means that the deployment step only triggers if all preceding security tests (SAST, SBOM, etc.) complete successfully.</p>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>GitHub Container Registry (<span>GHCR</span>)</h2>
+            <p>We use GHCR to store our Docker images. It is fully integrated with GitHub's ecosystem, allowing for seamless authentication and permissions management using the standard <code>GITHUB_TOKEN</code>.</p>
+            <div class="code-box">
+                <pre><code>- name: Log in to GHCR
+  uses: docker/login-action@v3
+  with:
+    registry: ghcr.io
+    username: ${{ github.actor }}
+    password: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+            </div>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>Tagging Strategy</h2>
+            <p>We use a dual tagging strategy for our images:</p>
+            <ul class="check-list">
+                <li><strong>Latest</strong>: Points to the most recent successful build on the <code>main</code> branch.</li>
+                <li><strong>Commit SHA</strong>: An immutable tag that points to the exact version of the code, essential for rollbacks and traceability.</li>
+            </ul>
+        </section>
+
+        <div class="back-nav reveal">
+            <a href="index.html" class="btn secondary">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CyberEdu Security Infrastructure Guide</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

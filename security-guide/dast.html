@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAST Detail | CyberEdu Security Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="subpage">
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Cyber<span>Sec</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sast.html">SAST</a></li>
+            <li><a href="sbom.html">SBOM</a></li>
+            <li><a href="cd.html">CD</a></li>
+        </ul>
+    </nav>
+
+    <main class="container page-content">
+        <header class="page-header reveal">
+            <h1>Dynamic Scanning (<span>DAST</span>)</h1>
+            <p>Finding vulnerabilities in a running application with Nuclei and Invicti.</p>
+        </header>
+
+        <section class="detail-block reveal">
+            <h2>What is DAST?</h2>
+            <p>Dynamic Application Security Testing (DAST) tests the application from the outside, just as an attacker would. It interacts with the running application to find vulnerabilities like SQL Injection, XSS, and broken authentication.</p>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>Tool 1: <span>Nuclei</span></h2>
+            <p>Nuclei is a fast, template-based vulnerability scanner. It allows us to scan for thousands of known CVEs and misconfigurations using community-powered YAML templates.</p>
+            <div class="code-box">
+                <pre><code># Run a quick local scan
+./run-nuclei.sh</code></pre>
+            </div>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>Tool 2: <span>Invicti</span></h2>
+            <p>Invicti (formerly Netsparker) provides enterprise-grade, depth-first DAST scanning. It uses a "Proof-Based Scanning" technology to verify vulnerabilities and reduce false positives.</p>
+            <ul class="check-list">
+                <li>Local Scan Agent for secure environments.</li>
+                <li>Comprehensive coverage of complex web apps.</li>
+                <li>Automated verification of findings.</li>
+            </ul>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>Local Agent Strategy</h2>
+            <p>Since our application runs in a local or staging environment, we use an <strong>Invicti Scan Agent</strong>. This agent acts as a bridge, allowing the cloud-based Invicti platform to safely scan your private local infrastructure without exposing it to the public internet.</p>
+        </section>
+
+        <div class="back-nav reveal">
+            <a href="index.html" class="btn secondary">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CyberEdu Security Infrastructure Guide</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

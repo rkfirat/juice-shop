@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBOM Detail | CyberEdu Security Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="subpage">
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Cyber<span>Sec</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sast.html">SAST</a></li>
+            <li><a href="dast.html">DAST</a></li>
+            <li><a href="cd.html">CD</a></li>
+        </ul>
+    </nav>
+
+    <main class="container page-content">
+        <header class="page-header reveal">
+            <h1>Supply Chain Security (<span>SBOM</span>)</h1>
+            <p>Tracking dependencies and ensuring transparency with Syft.</p>
+        </header>
+
+        <section class="detail-block reveal">
+            <h2>The Importance of SBOM</h2>
+            <p>Modern applications are built using thousands of third-party libraries. A Software Bill of Materials (SBOM) is an inventory of every component in your software, allowing you to quickly react when a new vulnerability is discovered in one of your dependencies (e.g., Log4j).</p>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>Our Tool: <span>Syft</span></h2>
+            <p>Syft is a powerful tool for generating SBOMs from container images and filesystems. It supports multiple formats, including the industry-standard CycloneDX.</p>
+            <div class="code-box">
+                <pre><code># Configuration in GitHub Actions
+- name: Generate SBOM
+  uses: anchore/sbom-action@v0
+  with:
+    format: cyclonedx-json
+    output-file: sbom.json</code></pre>
+            </div>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>CycloneDX Format</h2>
+            <p>We use CycloneDX JSON format because it is machine-readable and compatible with many vulnerability scanners and compliance tools. This allows us to automate the checking of our dependencies against known CVE databases.</p>
+        </section>
+
+        <div class="back-nav reveal">
+            <a href="index.html" class="btn secondary">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CyberEdu Security Infrastructure Guide</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

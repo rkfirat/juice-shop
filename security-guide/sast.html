@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAST Detail | CyberEdu Security Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="subpage">
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Cyber<span>Sec</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sbom.html">SBOM</a></li>
+            <li><a href="dast.html">DAST</a></li>
+            <li><a href="cd.html">CD</a></li>
+        </ul>
+    </nav>
+
+    <main class="container page-content">
+        <header class="page-header reveal">
+            <h1>Static Analysis (<span>SAST</span>)</h1>
+            <p>Scanning source code for vulnerabilities using Semgrep OSS.</p>
+        </header>
+
+        <section class="detail-block reveal">
+            <h2>What is SAST?</h2>
+            <p>Static Application Security Testing (SAST) involves analyzing the application's source code, byte code, or binaries for security vulnerabilities. Since it doesn't require a running system, it can be integrated early in the development cycle (Shift-Left).</p>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>Our Tool: <span>Semgrep OSS</span></h2>
+            <p>Semgrep is a fast, open-source static analysis engine for finding bugs and enforcing code standards. Its rules look like the code you already write.</p>
+            <div class="code-box">
+                <pre><code># Example Semgrep Rule for hardcoded secrets
+rules:
+  - id: hardcoded-api-key
+    pattern: |
+      $KEY = "..."
+    message: "Hardcoded API Key detected!"
+    severity: ERROR
+    languages: [javascript, python]</code></pre>
+            </div>
+        </section>
+
+        <section class="detail-block reveal">
+            <h2>GitHub Integration</h2>
+            <p>Results from our Semgrep scans are automatically uploaded to the <strong>GitHub Security Tab</strong> in SARIF format. This gives you a clear dashboard within the repo to track and resolve findings.</p>
+            <ul class="check-list">
+                <li>Automatic Pull Request comments.</li>
+                <li>Gated merges based on severity.</li>
+                <li>SARIF output for advanced dashboarding.</li>
+            </ul>
+        </section>
+
+        <div class="back-nav reveal">
+            <a href="index.html" class="btn secondary">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CyberEdu Security Infrastructure Guide</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
